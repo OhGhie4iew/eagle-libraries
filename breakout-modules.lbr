@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.6.0">
+<eagle version="9.0.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
+<setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -167,6 +168,50 @@ Charger</text>
 <pad name="GND@3" x="17.78" y="1.27" drill="0.8" shape="long"/>
 <text x="10.16" y="2.54" size="1.27" layer="21" rot="R90">Tb6612fng Breakout</text>
 </package>
+<package name="HM10_BLUETOOTH_MODULE">
+<wire x1="-6.5" y1="0" x2="-6.5" y2="27.5" width="0.127" layer="21"/>
+<wire x1="-6.5" y1="27.5" x2="6.5" y2="27.5" width="0.127" layer="21"/>
+<wire x1="6.5" y1="27.5" x2="6.5" y2="0" width="0.127" layer="21"/>
+<wire x1="6.5" y1="0" x2="-6.5" y2="0" width="0.127" layer="21"/>
+<polygon width="0.127" layer="21">
+<vertex x="-6" y="27"/>
+<vertex x="-2" y="27"/>
+<vertex x="-2" y="24.5"/>
+<vertex x="-0.5" y="24.5"/>
+<vertex x="-0.5" y="27"/>
+<vertex x="2" y="27"/>
+<vertex x="2" y="24.5"/>
+<vertex x="3.5" y="24.5"/>
+<vertex x="3.5" y="27"/>
+<vertex x="6" y="27"/>
+<vertex x="6" y="24"/>
+<vertex x="5.5" y="24"/>
+<vertex x="5.5" y="26.5"/>
+<vertex x="4" y="26.5"/>
+<vertex x="4" y="24"/>
+<vertex x="1.5" y="24"/>
+<vertex x="1.5" y="26.5"/>
+<vertex x="0" y="26.5"/>
+<vertex x="0" y="24"/>
+<vertex x="-2.5" y="24"/>
+<vertex x="-2.5" y="26.5"/>
+<vertex x="-4" y="26.5"/>
+<vertex x="-4" y="24"/>
+<vertex x="-4.5" y="24"/>
+<vertex x="-4.5" y="26.5"/>
+<vertex x="-5" y="26.5"/>
+<vertex x="-5" y="24"/>
+<vertex x="-6" y="24"/>
+</polygon>
+<pad name="VCC" x="-6.5" y="1.25" drill="0.6" diameter="1" shape="offset" rot="R180"/>
+<pad name="GND" x="-5" y="0" drill="0.6" diameter="1" shape="offset" rot="R270"/>
+<pad name="BRK" x="6.5" y="1.25" drill="0.6" diameter="1" shape="offset" rot="R180"/>
+<pad name="STATE" x="6.5" y="2.5" drill="0.6" diameter="1" shape="offset" rot="R180"/>
+<pad name="TX" x="-6.5" y="16.25" drill="0.6" diameter="1" shape="offset"/>
+<pad name="RX" x="-6.5" y="15" drill="0.6" diameter="1" shape="offset"/>
+<text x="0.5" y="10.5" size="1.27" layer="1" rot="R90">HM-10</text>
+<text x="0.5" y="10.5" size="1.27" layer="21" rot="R90">HM-10</text>
+</package>
 </packages>
 <symbols>
 <symbol name="ICSA004A_BOOST_MODULE">
@@ -253,6 +298,19 @@ Charger</text>
 <pin name="BIN2" x="17.78" y="-10.16" length="middle" direction="in" rot="R180"/>
 <pin name="PWMB" x="17.78" y="-15.24" length="middle" direction="in" rot="R180"/>
 <pin name="GND@3" x="17.78" y="-20.32" length="middle" direction="pwr" rot="R180"/>
+</symbol>
+<symbol name="HM10_BLUETOOTH_MODULE">
+<pin name="GND" x="0" y="-17.78" length="middle" direction="pwr" rot="R90"/>
+<pin name="VCC" x="0" y="12.7" length="middle" direction="pwr" rot="R270"/>
+<pin name="TX" x="-25.4" y="2.54" length="middle"/>
+<pin name="RX" x="-25.4" y="-7.62" length="middle"/>
+<pin name="STATE" x="25.4" y="2.54" length="middle" direction="out" rot="R180"/>
+<pin name="BRK" x="25.4" y="-7.62" length="middle" direction="in" rot="R180"/>
+<wire x1="-20.32" y1="7.62" x2="20.32" y2="7.62" width="0.254" layer="94"/>
+<wire x1="20.32" y1="7.62" x2="20.32" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="20.32" y1="-12.7" x2="-20.32" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="-20.32" y1="-12.7" x2="-20.32" y2="7.62" width="0.254" layer="94"/>
+<text x="-12.7" y="-2.54" size="1.778" layer="94">HM-10 Bluetooth Module</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -430,6 +488,38 @@ TP4056
 <connect gate="G$1" pin="STBY" pad="STDBY"/>
 <connect gate="G$1" pin="VCC" pad="VCC"/>
 <connect gate="G$1" pin="VM" pad="VM"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="HM10_BLUETOOTH_MODULE">
+<description>&lt;h1&gt;HM-10 Bluetooth 4 BLE Modules&lt;/h1&gt;
+&lt;p&gt;Breaks out the pins&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;VCC&lt;/li&gt;
+	&lt;li&gt;GND&lt;/li&gt;
+	&lt;li&gt;RX/TX&lt;/li&gt;
+	&lt;li&gt;STATE&lt;/li&gt;
+	&lt;li&gt;BRK&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+&lt;a href="http://www.martyncurrey.com/hm-10-bluetooth-4ble-modules/"&gt;http://www.martyncurrey.com/hm-10-bluetooth-4ble-modules/&lt;/a&gt;
+&lt;/p&gt;</description>
+<gates>
+<gate name="G$1" symbol="HM10_BLUETOOTH_MODULE" x="0" y="2.54"/>
+</gates>
+<devices>
+<device name="" package="HM10_BLUETOOTH_MODULE">
+<connects>
+<connect gate="G$1" pin="BRK" pad="BRK"/>
+<connect gate="G$1" pin="GND" pad="GND"/>
+<connect gate="G$1" pin="RX" pad="RX"/>
+<connect gate="G$1" pin="STATE" pad="STATE"/>
+<connect gate="G$1" pin="TX" pad="TX"/>
+<connect gate="G$1" pin="VCC" pad="VCC"/>
 </connects>
 <technologies>
 <technology name=""/>
