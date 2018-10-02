@@ -58,6 +58,7 @@
 <layer number="98" name="Guide" color="6" fill="1" visible="yes" active="yes"/>
 </layers>
 <library>
+<description>&lt;h1&gt;Footprint for a NRF24L01 breakout board&lt;/h1&gt;</description>
 <packages>
 <package name="NRF24-BREAKOUT">
 <pad name="GND" x="2.54" y="2.54" drill="0.8" diameter="1.4224" shape="offset" rot="R270"/>
