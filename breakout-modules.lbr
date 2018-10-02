@@ -66,6 +66,7 @@
 	&lt;li&gt;QSKJ Boost module. Output: 5V&lt;/li&gt;
 	&lt;li&gt;Tb6612fng breakout board&lt;/li&gt;
 	&lt;li&gt;XL6009 Boost converter&lt;/li&gt;
+	&lt;li&gt;LM2576 Buck converter&lt;/li&gt;
 &lt;/ul&gt;</description>
 <packages>
 <package name="ICSA004A_BOOST_MODULE">
