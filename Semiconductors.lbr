@@ -7,7 +7,7 @@
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -124,11 +124,13 @@
 <layer number="254" name="cooling" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <library>
-<description>&lt;ul&gt;
+<description>&lt;h1&gt;Misc components&lt;/h1&gt;
+&lt;ul&gt;
 	&lt;li&gt;AMC7150 - 1.5A Led driver&lt;/li&gt;
 	&lt;li&gt;BTS436L2 - Smart High-Side Power Switch&lt;/li&gt;
 	&lt;li&gt;FDS6675 - Single P-Channel, Logic Level, PowerTrenchTM MOSFET&lt;/li&gt;
 	&lt;li&gt;Polyfuse SMD 1812&lt;/li&gt;
+	&lt;li&gt;32.768 KHz clock crystal&lt;/li&gt;
 &lt;/ul&gt;</description>
 <packages>
 <package name="SO08">
@@ -248,6 +250,11 @@ P-TO263-5-2</description>
 <description>PTC 1812</description>
 <smd name="P$1" x="0" y="1.725" dx="3.5" dy="1.78" layer="1"/>
 <smd name="P$2" x="0" y="-1.725" dx="3.5" dy="1.78" layer="1"/>
+</package>
+<package name="SM3">
+<description>SM3 / FC135</description>
+<smd name="P$1" x="0" y="1.25" dx="1.8" dy="1" layer="1"/>
+<smd name="P$2" x="0" y="-1.25" dx="1.8" dy="1" layer="1"/>
 </package>
 </packages>
 <symbols>
@@ -389,6 +396,18 @@ High Side Switch</text>
 <text x="-5.08" y="7.62" size="1.778" layer="95">&gt;NAME</text>
 <text x="-5.08" y="-10.16" size="1.778" layer="96">&gt;VALUE</text>
 </symbol>
+<symbol name="CLOCK_CRYSTAL_32KHZ">
+<wire x1="-2.54" y1="-5.08" x2="-2.54" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="5.08" x2="2.54" y2="5.08" width="0.254" layer="94"/>
+<wire x1="2.54" y1="5.08" x2="2.54" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-5.08" x2="-2.54" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-5.08" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="5.08" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
+<pin name="P$1" x="-10.16" y="0" length="middle"/>
+<pin name="P$2" x="10.16" y="0" length="middle" rot="R180"/>
+<text x="-5.08" y="7.62" size="1.778" layer="95">&gt;NAME</text>
+<text x="-5.08" y="-10.16" size="1.778" layer="96">&gt;VALUE</text>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="FDS6675">
@@ -494,6 +513,23 @@ The tab is shorted to pin 3&lt;/td&gt;&lt;/tr&gt;
 </gates>
 <devices>
 <device name="" package="1812">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+<connect gate="G$1" pin="P$2" pad="P$2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="CLOCK_CRYSTAL_32KHZ">
+<description>32.768 KHz clock crystal</description>
+<gates>
+<gate name="G$1" symbol="CLOCK_CRYSTAL_32KHZ" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SM3">
 <connects>
 <connect gate="G$1" pin="P$1" pad="P$1"/>
 <connect gate="G$1" pin="P$2" pad="P$2"/>
