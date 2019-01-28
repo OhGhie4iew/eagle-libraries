@@ -24,6 +24,7 @@ Modules from Ebay / Ali Express etc.
 * QSKJ Boost module. Output: 5V
 * Tb6612fng breakout board
 * XL6009 Boost converter 
+* CN3791 MPPT Solar charger module for single lipo cell
 
 electromechanical.lbr
 ---------------------
